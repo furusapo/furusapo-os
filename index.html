@@ -185,6 +185,394 @@
       }
     }
   </style>
+
+<!-- furusapo-os unified design from diagnosis.html -->
+<style id="furusapo-unified-design">
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Maru Gothic ProN", "Rounded Mplus 1c", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #fffaf5 0%, #fff3e8 100%);
+      color: #1f2933;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #fff8ef 0%, #ffe5d0 100%);
+      border-radius: 28px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      border: 1px solid #e5e0d8;
+      box-shadow: 0 12px 24px rgba(230, 126, 34, 0.12);
+    }
+
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #3b2d1f;
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: #6b7280;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 8px 20px rgba(31, 41, 51, 0.04);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #e5e0d8;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .num {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: #3b2d1f;
+      font-size: 19px;
+    }
+
+    .question {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eee9e1;
+    }
+
+    .question:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .question-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 2px solid #f1e7db;
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .option:hover {
+      transform: translateY(-2px);
+      border-color: #f5a623;
+      box-shadow: 0 10px 20px rgba(245,166,35,0.15);
+    }
+
+    .option:has(input:checked) {
+      background: #fff6ea;
+      border-color: #f5a623;
+      box-shadow: 0 8px 18px rgba(245,166,35,0.18);
+    }
+
+    .option input {
+      width: 20px;
+      height: 20px;
+      accent-color: #f5a623;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .option span {
+      font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d7d2ca;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      background: white;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .required {
+      color: #b91c1c;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    button {
+      border: none;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      padding: 14px 38px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(31, 58, 95, 0.22);
+    }
+
+    .actions {
+      text-align: center;
+    }
+
+    .result {
+      display: none;
+      background: #ffffff;
+      border: 2px solid #1f3a5f;
+      border-radius: 22px;
+      padding: 26px;
+      margin-top: 24px;
+      box-shadow: 0 12px 30px rgba(31, 58, 95, 0.10);
+    }
+
+    .result h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .score {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta {
+      margin-top: 18px;
+      background: #fffaf2;
+      border: 1px solid #ead8bd;
+      color: #6b4e25;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 13px;
+    }
+
+    .cta a {
+      color: #3b2d1f;
+      font-weight: 700;
+    }
+
+    
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin: 0 -16px 24px;
+      padding: 12px 16px;
+      background: rgba(246, 243, 239, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #7a6a58;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #f1e7db;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff9f43, #ff7b54);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .result-icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .result-message {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #5b4630;
+      margin-top: 12px;
+    }
+
+
+    .footer-note {
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+
+    @media (max-width: 720px) {
+      h1 {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 14px 16px;
+      }
+
+      .lead {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 22px 18px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  
+
+/* フォーム共通の微調整 */
+body {
+  background: #fffaf4;
+}
+
+input, select, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 80, 40, 0.18);
+  padding: 13px 14px;
+  font-size: 16px;
+  background: #fff;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+button,
+input[type="submit"],
+.submit-btn,
+.btn,
+.primary-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 700;
+}
+
+.furusapo-note {
+  font-size: 13px;
+  opacity: .75;
+}
+</style>
+
 </head>
 
 <body>
