@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ふるサポ｜フォームメニュー</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", "YuGothic", sans-serif;
+      background: #f6f3ee;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 24px;
+      padding: 34px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 22px;
+    }
+
+    .label {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.35;
+    }
+
+    .lead {
+      margin: 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e6dfd5;
+      border-radius: 18px;
+      padding: 18px;
+      min-height: 132px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .card.primary {
+      border: 2px solid #111;
+      background: #fffdf8;
+    }
+
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #111;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card span {
+      display: block;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .mini {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #8a6f45;
+      font-weight: 700;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e6dfd5;
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .tool-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .tool-card span {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .note {
+      margin-top: 22px;
+      background: #fff7e8;
+      border: 1px solid #f0d9aa;
+      border-radius: 18px;
+      padding: 16px;
+      color: #6b4b17;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #777;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .hero {
+        padding: 26px 18px;
+      }
+    }
+  </style>
+
+<!-- furusapo-os unified design from diagnosis.html -->
+<style id="furusapo-unified-design">
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Maru Gothic ProN", "Rounded Mplus 1c", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #fffaf5 0%, #fff3e8 100%);
+      color: #1f2933;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #fff8ef 0%, #ffe5d0 100%);
+      border-radius: 28px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      border: 1px solid #e5e0d8;
+      box-shadow: 0 12px 24px rgba(230, 126, 34, 0.12);
+    }
+
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #3b2d1f;
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .lead {
+      color: #6b7280;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 8px 20px rgba(31, 41, 51, 0.04);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #e5e0d8;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .num {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: #3b2d1f;
+      font-size: 19px;
+    }
+
+    .question {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eee9e1;
+    }
+
+    .question:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .question-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 2px solid #f1e7db;
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .option:hover {
+      transform: translateY(-2px);
+      border-color: #f5a623;
+      box-shadow: 0 10px 20px rgba(245,166,35,0.15);
+    }
+
+    .option:has(input:checked) {
+      background: #fff6ea;
+      border-color: #f5a623;
+      box-shadow: 0 8px 18px rgba(245,166,35,0.18);
+    }
+
+    .option input {
+      width: 20px;
+      height: 20px;
+      accent-color: #f5a623;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .option span {
+      font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d7d2ca;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      background: white;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .required {
+      color: #b91c1c;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    button {
+      border: none;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      padding: 14px 38px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(31, 58, 95, 0.22);
+    }
+
+    .actions {
+      text-align: center;
+    }
+
+    .result {
+      display: none;
+      background: #ffffff;
+      border: 2px solid #1f3a5f;
+      border-radius: 22px;
+      padding: 26px;
+      margin-top: 24px;
+      box-shadow: 0 12px 30px rgba(31, 58, 95, 0.10);
+    }
+
+    .result h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .score {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a3d, #ff5e7a);
+      color: white;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta {
+      margin-top: 18px;
+      background: #fffaf2;
+      border: 1px solid #ead8bd;
+      color: #6b4e25;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 13px;
+    }
+
+    .cta a {
+      color: #3b2d1f;
+      font-weight: 700;
+    }
+
+    
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin: 0 -16px 24px;
+      padding: 12px 16px;
+      background: rgba(246, 243, 239, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #7a6a58;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #f1e7db;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff9f43, #ff7b54);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .result-icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .result-message {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #5b4630;
+      margin-top: 12px;
+    }
+
+
+    .footer-note {
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+
+    @media (max-width: 720px) {
+      h1 {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 14px 16px;
+      }
+
+      .lead {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 22px 18px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  
+
+/* フォーム共通の微調整 */
+body {
+  background: #fffaf4;
+}
+
+input, select, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 80, 40, 0.18);
+  padding: 13px 14px;
+  font-size: 16px;
+  background: #fff;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+button,
+input[type="submit"],
+.submit-btn,
+.btn,
+.primary-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 700;
+}
+
+.furusapo-note {
+  font-size: 13px;
+  opacity: .75;
+}
+</style>
+
+
+<style id="furusapo-final-unified-style">
+:root{
+  --bg:#fff9f2;
+  --card:#ffffff;
+  --hero1:#fffaf4;
+  --hero2:#ffe9d8;
+  --text:#3a281f;
+  --sub:#76685e;
+  --line:#f3d9c8;
+  --orange:#ff7a2f;
+  --pink:#ff4f6d;
+  --navy:#1f4268;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0 !important;
+  padding:0 !important;
+  background:var(--bg) !important;
+  color:var(--text) !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif !important;
+  font-size:16px !important;
+  line-height:1.75 !important;
+}
+
+body{
+  padding:28px 18px 48px !important;
+}
+
+main,.container,.wrap,.wrapper,.page{
+  width:min(1120px,100%) !important;
+  margin:0 auto !important;
+}
+
+header,.hero,.mv,.first-view,.main-visual,
+body > div:first-child{
+  background:linear-gradient(135deg,var(--hero1),var(--hero2)) !important;
+  border:1px solid var(--line) !important;
+  border-radius:24px !important;
+  box-shadow:0 14px 34px rgba(90,55,20,.07) !important;
+  padding:42px 36px !important;
+  margin:0 auto 28px !important;
+  text-align:center !important;
+}
+
+h1{
+  margin:10px 0 14px !important;
+  color:var(--text) !important;
+  font-size:clamp(30px,4.3vw,48px) !important;
+  line-height:1.2 !important;
+  font-weight:900 !important;
+  letter-spacing:.02em !important;
+}
+
+h2{
+  font-size:24px !important;
+  line-height:1.35 !important;
+  color:var(--text) !important;
+}
+
+h3{
+  font-size:20px !important;
+  color:var(--text) !important;
+}
+
+p,.lead,.description,.subtitle{
+  color:var(--sub) !important;
+  font-size:18px !important;
+  line-height:1.8 !important;
+  font-weight:600 !important;
+}
+
+.badge,.label-brand,.brand,.site-name{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:var(--navy) !important;
+  color:#fff !important;
+  border-radius:999px !important;
+  padding:8px 22px !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+  margin:0 auto 14px !important;
+}
+
+.card,.section,.form-section,.question,.question-card,fieldset,
+form > div{
+  background:var(--card) !important;
+  border:1px solid var(--line) !important;
+  border-radius:18px !important;
+  box-shadow:0 10px 26px rgba(90,55,20,.045) !important;
+  padding:24px !important;
+  margin:18px auto !important;
+}
+
+.progress,.progress-box,.progress-card{
+  background:#fff !important;
+  border:1px solid var(--line) !important;
+  border-radius:16px !important;
+  padding:20px 24px !important;
+  margin:18px auto 22px !important;
+}
+
+progress,
+.progress-bar,
+.bar{
+  width:100% !important;
+  height:12px !important;
+  border-radius:999px !important;
+  background:#f7eadf !important;
+  overflow:hidden !important;
+}
+
+label,legend{
+  color:var(--text) !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+}
+
+input,select,textarea{
+  width:100% !important;
+  min-height:52px !important;
+  border:1px solid var(--line) !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  color:var(--text) !important;
+  font-size:17px !important;
+  padding:14px 16px !important;
+  box-shadow:none !important;
+}
+
+textarea{ min-height:120px !important; }
+
+input::placeholder,textarea::placeholder{
+  color:#b6aaa1 !important;
+}
+
+input[type="radio"],input[type="checkbox"]{
+  width:22px !important;
+  height:22px !important;
+  min-height:auto !important;
+  accent-color:var(--orange) !important;
+  margin-right:10px !important;
+}
+
+button,
+input[type="submit"],
+.btn,.button,.submit-btn,.primary-btn,
+a.button,a.btn{
+  background:linear-gradient(90deg,var(--orange),var(--pink)) !important;
+  color:#fff !important;
+  border:none !important;
+  border-radius:999px !important;
+  min-height:56px !important;
+  padding:14px 30px !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  text-decoration:none !important;
+  box-shadow:0 12px 24px rgba(255,105,60,.22) !important;
+}
+
+.back,.back-btn,.secondary-btn{
+  background:#fff !important;
+  color:#8a6240 !important;
+  border:1px solid var(--line) !important;
+  box-shadow:none !important;
+}
+
+.required,.must{
+  color:#ff5b45 !important;
+  border:1px solid #ff6b55 !important;
+  background:#fff !important;
+  border-radius:999px !important;
+  padding:2px 8px !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+}
+
+@media(max-width:640px){
+  body{ padding:16px 12px 36px !important; }
+  header,.hero,.mv,.first-view,.main-visual,body > div:first-child{
+    padding:28px 20px !important;
+    border-radius:20px !important;
+  }
+  h1{ font-size:30px !important; }
+  p,.lead,.description,.subtitle{ font-size:15px !important; }
+  .card,.section,.form-section,.question,.question-card,fieldset,form > div{
+    padding:18px !important;
+  }
+}
+</style>
+
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="label">ふるサポ</span>
+      <h1>フォームメニュー</h1>
+      <p class="lead">
+        ふるさと納税の返礼品登録サポートに使うフォーム一覧です。<br>
+        かんたん診断から、事業者情報・申請情報・振込先情報・商品情報まで順番に確認できます。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">お客様向けフォーム</h2>
+
+      <div class="grid">
+        <a class="card primary" href="diagnosis.html">
+          <div class="step">1</div>
+          <strong>かんたん診断フォーム</strong>
+          <span>出品できそうか、最初の確認に使う入口フォームです。</span>
+          <div class="mini">Instagram・LPからの導線に使う</div>
+        </a>
+
+        <a class="card" href="business.html">
+          <div class="step">2</div>
+          <strong>事業者基本情報フォーム</strong>
+          <span>事業者名、担当者、連絡先、発送元情報などを回収します。</span>
+          <div class="mini">顧客ID・事業者名の自動表示対応済み</div>
+        </a>
+
+        <a class="card" href="application.html">
+          <div class="step">3</div>
+          <strong>申請情報フォーム</strong>
+          <span>申込内容、支払い方法、同意事項などを回収します。</span>
+          <div class="mini">顧客ID・事業者名の自動表示対応済み</div>
+        </a>
+
+        <a class="card" href="furikomisaki_register.html">
+          <div class="step">4</div>
+          <strong>振込先情報フォーム</strong>
+          <span>金融機関名、支店名、口座番号、口座名義などを回収します。</span>
+          <div class="mini">確認後だけ保存・完了表示対応済み</div>
+        </a>
+
+        <a class="card" href="product.html">
+          <div class="step">5</div>
+          <strong>商品情報フォーム</strong>
+          <span>返礼品の商品名、金額、内容量、原材料、画像情報などを登録します。</span>
+          <div class="mini">複数商品登録・修正・削除対応済み</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">管理用リンク</h2>
+
+      <div class="tool-grid">
+        <a class="tool-card" href="https://docs.google.com/spreadsheets/" target="_blank">
+          <strong>Googleスプレッドシート</strong>
+          <span>顧客台帳・各フォームの送信内容を確認</span>
+        </a>
+
+        <a class="tool-card" href="https://drive.google.com/" target="_blank">
+          <strong>Googleドライブ</strong>
+          <span>顧客別フォルダ・PDF・画像素材の管理</span>
+        </a>
+
+        <a class="tool-card" href="https://script.google.com/home" target="_blank">
+          <strong>Google Apps Script</strong>
+          <span>フォーム送信・自動保存の設定確認</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="note">
+      <strong>開発メモ：</strong><br>
+      現在はテスト環境です。お客様に共有する本番URLは、デプロイ後に顧客ID・事業者名付きURLとして顧客台帳から発行します。
+    </div>
+
+    <div class="footer">
+      furusapo form menu
+    </div>
+  </main>
+</body>
+</html>

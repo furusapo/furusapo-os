@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ふるサポ埼玉｜管理ダッシュボード</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN W4","Arial Rounded MT Bold",-apple-system,sans-serif;
+  background:#f4f6f8;
+  color:#222;
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:#fff;
+  border-radius:24px;
+  padding:20px 24px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:26px;
+  margin-bottom:4px;
+}
+
+.hero p{
+  opacity:0.85;
+  font-size:14px;
+}
+
+.section{
+  margin-bottom:32px;
+}
+
+.section h2{
+  font-size:20px;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card .step{
+  display:inline-flex;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#111827;
+  color:#fff;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+
+.card strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.card span{
+  color:#666;
+  font-size:14px;
+}
+
+.highlight{
+  border:2px solid #ec4899;
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+
+.tool{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  text-decoration:none;
+  color:#222;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.tool strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.footer{
+  text-align:center;
+  color:#888;
+  margin-top:40px;
+  font-size:13px;
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:24px;
+  }
+}
+</style>
+
+<style id="furusapo-final-unified-style">
+:root{
+  --bg:#fff9f2;
+  --card:#ffffff;
+  --hero1:#fffaf4;
+  --hero2:#ffe9d8;
+  --text:#3a281f;
+  --sub:#76685e;
+  --line:#f3d9c8;
+  --orange:#ff7a2f;
+  --pink:#ff4f6d;
+  --navy:#1f4268;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0 !important;
+  padding:0 !important;
+  background:var(--bg) !important;
+  color:var(--text) !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif !important;
+  font-size:16px !important;
+  line-height:1.75 !important;
+}
+
+body{
+  padding:28px 18px 48px !important;
+}
+
+main,.container,.wrap,.wrapper,.page{
+  width:min(1120px,100%) !important;
+  margin:0 auto !important;
+}
+
+header,.hero,.mv,.first-view,.main-visual,
+body > div:first-child{
+  background:linear-gradient(135deg,var(--hero1),var(--hero2)) !important;
+  border:1px solid var(--line) !important;
+  border-radius:24px !important;
+  box-shadow:0 14px 34px rgba(90,55,20,.07) !important;
+  padding:42px 36px !important;
+  margin:0 auto 28px !important;
+  text-align:center !important;
+}
+
+h1{
+  margin:10px 0 14px !important;
+  color:var(--text) !important;
+  font-size:clamp(30px,4.3vw,48px) !important;
+  line-height:1.2 !important;
+  font-weight:900 !important;
+  letter-spacing:.02em !important;
+}
+
+h2{
+  font-size:24px !important;
+  line-height:1.35 !important;
+  color:var(--text) !important;
+}
+
+h3{
+  font-size:20px !important;
+  color:var(--text) !important;
+}
+
+p,.lead,.description,.subtitle{
+  color:var(--sub) !important;
+  font-size:18px !important;
+  line-height:1.8 !important;
+  font-weight:600 !important;
+}
+
+.badge,.label-brand,.brand,.site-name{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:var(--navy) !important;
+  color:#fff !important;
+  border-radius:999px !important;
+  padding:8px 22px !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+  margin:0 auto 14px !important;
+}
+
+.card,.section,.form-section,.question,.question-card,fieldset,
+form > div{
+  background:var(--card) !important;
+  border:1px solid var(--line) !important;
+  border-radius:18px !important;
+  box-shadow:0 10px 26px rgba(90,55,20,.045) !important;
+  padding:24px !important;
+  margin:18px auto !important;
+}
+
+.progress,.progress-box,.progress-card{
+  background:#fff !important;
+  border:1px solid var(--line) !important;
+  border-radius:16px !important;
+  padding:20px 24px !important;
+  margin:18px auto 22px !important;
+}
+
+progress,
+.progress-bar,
+.bar{
+  width:100% !important;
+  height:12px !important;
+  border-radius:999px !important;
+  background:#f7eadf !important;
+  overflow:hidden !important;
+}
+
+label,legend{
+  color:var(--text) !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+}
+
+input,select,textarea{
+  width:100% !important;
+  min-height:52px !important;
+  border:1px solid var(--line) !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  color:var(--text) !important;
+  font-size:17px !important;
+  padding:14px 16px !important;
+  box-shadow:none !important;
+}
+
+textarea{ min-height:120px !important; }
+
+input::placeholder,textarea::placeholder{
+  color:#b6aaa1 !important;
+}
+
+input[type="radio"],input[type="checkbox"]{
+  width:22px !important;
+  height:22px !important;
+  min-height:auto !important;
+  accent-color:var(--orange) !important;
+  margin-right:10px !important;
+}
+
+button,
+input[type="submit"],
+.btn,.button,.submit-btn,.primary-btn,
+a.button,a.btn{
+  background:linear-gradient(90deg,var(--orange),var(--pink)) !important;
+  color:#fff !important;
+  border:none !important;
+  border-radius:999px !important;
+  min-height:56px !important;
+  padding:14px 30px !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+  text-decoration:none !important;
+  box-shadow:0 12px 24px rgba(255,105,60,.22) !important;
+}
+
+.back,.back-btn,.secondary-btn{
+  background:#fff !important;
+  color:#8a6240 !important;
+  border:1px solid var(--line) !important;
+  box-shadow:none !important;
+}
+
+.required,.must{
+  color:#ff5b45 !important;
+  border:1px solid #ff6b55 !important;
+  background:#fff !important;
+  border-radius:999px !important;
+  padding:2px 8px !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+}
+
+@media(max-width:640px){
+  body{ padding:16px 12px 36px !important; }
+  header,.hero,.mv,.first-view,.main-visual,body > div:first-child{
+    padding:28px 20px !important;
+    border-radius:20px !important;
+  }
+  h1{ font-size:30px !important; }
+  p,.lead,.description,.subtitle{ font-size:15px !important; }
+  .card,.section,.form-section,.question,.question-card,fieldset,form > div{
+    padding:18px !important;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>ふるサポ埼玉｜管理ダッシュボード</h1>
+    <p>Instagramからの導線は「かんたん診断フォーム」のみ。ここは運営者専用ページです。</p>
+  </div>
+
+  <div class="section">
+    <h2>案件対応フロー</h2>
+
+    <div class="grid">
+
+      <a class="card highlight" href="diagnosis.html">
+        <div class="step">★</div>
+        <strong>かんたん診断</strong>
+        <span>Instagram・LPからの入口</span>
+      </a>
+
+      <a class="card" href="business.html">
+        <div class="step">1</div>
+        <strong>事業者情報</strong>
+        <span>基本情報・発送元情報</span>
+      </a>
+
+      <a class="card" href="application.html">
+        <div class="step">2</div>
+        <strong>申請情報</strong>
+        <span>申込内容・支払情報</span>
+      </a>
+
+      <a class="card" href="furikomisaki_register.html">
+        <div class="step">3</div>
+        <strong>振込先情報</strong>
+        <span>口座情報の登録</span>
+      </a>
+
+      <a class="card" href="product.html">
+        <div class="step">4</div>
+        <strong>商品情報</strong>
+        <span>返礼品の登録・編集</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>管理ツール</h2>
+
+    <div class="tool-grid">
+
+      <a class="tool" href="https://docs.google.com/spreadsheets/" target="_blank">
+        <strong>📊 スプレッドシート</strong>
+        顧客台帳・送信内容
+      </a>
+
+      <a class="tool" href="https://drive.google.com/" target="_blank">
+        <strong>📁 Google Drive</strong>
+        顧客資料・画像管理
+      </a>
+
+      <a class="tool" href="https://script.google.com/home" target="_blank">
+        <strong>⚙️ Apps Script</strong>
+        GAS管理画面
+      </a>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    Furusapo Saitama Dashboard
+  </div>
+
+</div>
+
+</body>
+</html>
