@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ふるサポ埼玉｜管理ダッシュボード</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN W4","Arial Rounded MT Bold",-apple-system,sans-serif;
+  background:#f4f6f8;
+  color:#222;
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:#fff;
+  border-radius:24px;
+  padding:20px 24px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:26px;
+  margin-bottom:4px;
+}
+
+.hero p{
+  opacity:0.85;
+  font-size:14px;
+}
+
+.section{
+  margin-bottom:32px;
+}
+
+.section h2{
+  font-size:20px;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card .step{
+  display:inline-flex;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#111827;
+  color:#fff;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+
+.card strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.card span{
+  color:#666;
+  font-size:14px;
+}
+
+.highlight{
+  border:2px solid #ec4899;
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+
+.tool{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  text-decoration:none;
+  color:#222;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.tool strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.footer{
+  text-align:center;
+  color:#888;
+  margin-top:40px;
+  font-size:13px;
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>ふるサポ埼玉｜管理ダッシュボード</h1>
+    <p>Instagramからの導線は「かんたん診断フォーム」のみ。ここは運営者専用ページです。</p>
+  </div>
+
+  <div class="section">
+    <h2>案件対応フロー</h2>
+
+    <div class="grid">
+
+      <a class="card highlight" href="diagnosis.html">
+        <div class="step">★</div>
+        <strong>かんたん診断</strong>
+        <span>Instagram・LPからの入口</span>
+      </a>
+
+      <a class="card" href="business.html">
+        <div class="step">1</div>
+        <strong>事業者情報</strong>
+        <span>基本情報・発送元情報</span>
+      </a>
+
+      <a class="card" href="application.html">
+        <div class="step">2</div>
+        <strong>申請情報</strong>
+        <span>申込内容・支払情報</span>
+      </a>
+
+      <a class="card" href="furikomisaki_register.html">
+        <div class="step">3</div>
+        <strong>振込先情報</strong>
+        <span>口座情報の登録</span>
+      </a>
+
+      <a class="card" href="product.html">
+        <div class="step">4</div>
+        <strong>商品情報</strong>
+        <span>返礼品の登録・編集</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>管理ツール</h2>
+
+    <div class="tool-grid">
+
+      <a class="tool" href="https://docs.google.com/spreadsheets/" target="_blank">
+        <strong>📊 スプレッドシート</strong>
+        顧客台帳・送信内容
+      </a>
+
+      <a class="tool" href="https://drive.google.com/" target="_blank">
+        <strong>📁 Google Drive</strong>
+        顧客資料・画像管理
+      </a>
+
+      <a class="tool" href="https://script.google.com/home" target="_blank">
+        <strong>⚙️ Apps Script</strong>
+        GAS管理画面
+      </a>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    Furusapo Saitama Dashboard
+  </div>
+
+</div>
+
+</body>
+</html>

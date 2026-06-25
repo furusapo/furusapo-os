@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ふるサポ｜フォームメニュー</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", "YuGothic", sans-serif;
+      background: #f6f3ee;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 24px;
+      padding: 34px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 22px;
+    }
+
+    .label {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.35;
+    }
+
+    .lead {
+      margin: 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e6dfd5;
+      border-radius: 18px;
+      padding: 18px;
+      min-height: 132px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .card.primary {
+      border: 2px solid #111;
+      background: #fffdf8;
+    }
+
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #111;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card span {
+      display: block;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .mini {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #8a6f45;
+      font-weight: 700;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid #e6dfd5;
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .tool-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .tool-card span {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .note {
+      margin-top: 22px;
+      background: #fff7e8;
+      border: 1px solid #f0d9aa;
+      border-radius: 18px;
+      padding: 16px;
+      color: #6b4b17;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #777;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .hero {
+        padding: 26px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="label">ふるサポ</span>
+      <h1>フォームメニュー</h1>
+      <p class="lead">
+        ふるさと納税の返礼品登録サポートに使うフォーム一覧です。<br>
+        かんたん診断から、事業者情報・申請情報・振込先情報・商品情報まで順番に確認できます。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">お客様向けフォーム</h2>
+
+      <div class="grid">
+        <a class="card primary" href="diagnosis.html">
+          <div class="step">1</div>
+          <strong>かんたん診断フォーム</strong>
+          <span>出品できそうか、最初の確認に使う入口フォームです。</span>
+          <div class="mini">Instagram・LPからの導線に使う</div>
+        </a>
+
+        <a class="card" href="business.html">
+          <div class="step">2</div>
+          <strong>事業者基本情報フォーム</strong>
+          <span>事業者名、担当者、連絡先、発送元情報などを回収します。</span>
+          <div class="mini">顧客ID・事業者名の自動表示対応済み</div>
+        </a>
+
+        <a class="card" href="application.html">
+          <div class="step">3</div>
+          <strong>申請情報フォーム</strong>
+          <span>申込内容、支払い方法、同意事項などを回収します。</span>
+          <div class="mini">顧客ID・事業者名の自動表示対応済み</div>
+        </a>
+
+        <a class="card" href="furikomisaki_register.html">
+          <div class="step">4</div>
+          <strong>振込先情報フォーム</strong>
+          <span>金融機関名、支店名、口座番号、口座名義などを回収します。</span>
+          <div class="mini">確認後だけ保存・完了表示対応済み</div>
+        </a>
+
+        <a class="card" href="product.html">
+          <div class="step">5</div>
+          <strong>商品情報フォーム</strong>
+          <span>返礼品の商品名、金額、内容量、原材料、画像情報などを登録します。</span>
+          <div class="mini">複数商品登録・修正・削除対応済み</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">管理用リンク</h2>
+
+      <div class="tool-grid">
+        <a class="tool-card" href="https://docs.google.com/spreadsheets/" target="_blank">
+          <strong>Googleスプレッドシート</strong>
+          <span>顧客台帳・各フォームの送信内容を確認</span>
+        </a>
+
+        <a class="tool-card" href="https://drive.google.com/" target="_blank">
+          <strong>Googleドライブ</strong>
+          <span>顧客別フォルダ・PDF・画像素材の管理</span>
+        </a>
+
+        <a class="tool-card" href="https://script.google.com/home" target="_blank">
+          <strong>Google Apps Script</strong>
+          <span>フォーム送信・自動保存の設定確認</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="note">
+      <strong>開発メモ：</strong><br>
+      現在はテスト環境です。お客様に共有する本番URLは、デプロイ後に顧客ID・事業者名付きURLとして顧客台帳から発行します。
+    </div>
+
+    <div class="footer">
+      furusapo form menu
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>返礼品登録｜商品情報フォーム</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #f6f3ef;
+      color: #1f2933;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      border-radius: 24px;
+      padding: 34px 26px;
+      margin-bottom: 24px;
+      border: 1px solid #e5e0d8;
+      box-shadow: 0 12px 30px rgba(31, 58, 95, 0.08);
+    }
+
+    .label {
+      display: inline-block;
+      background: #1f3a5f;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #1f3a5f;
+      font-size: 30px;
+      line-height: 1.4;
+    }
+
+    .lead {
+      color: #6b7280;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 8px 20px rgba(31, 41, 51, 0.04);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #e5e0d8;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .num {
+      width: 30px;
+      height: 30px;
+      background: #1f3a5f;
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #1f3a5f;
+      font-size: 19px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .required {
+      color: #b91c1c;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d7d2ca;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #1f3a5f;
+      box-shadow: 0 0 0 4px rgba(31, 58, 95, 0.12);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .note {
+      background: #fffaf2;
+      border: 1px solid #ead8bd;
+      color: #6b4e25;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      border: none;
+      background: #1f3a5f;
+      color: white;
+      padding: 14px 38px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(31, 58, 95, 0.22);
+    }
+
+    .actions {
+      text-align: center;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .section {
+        padding: 22px 18px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+
+<style id="furusapo-common-ui-v1">
+  body {
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif !important;
+    background: #fff8f1 !important;
+    color: #3a2a1f !important;
+    overflow-x: hidden !important;
+  }
+
+  header, .header, .hero {
+    max-width: 760px !important;
+    width: calc(100% - 24px) !important;
+    margin: 8px auto 10px !important;
+    padding: 12px 14px !important;
+    border-radius: 18px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  h1 {
+    font-size: clamp(22px, 4.5vw, 30px) !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 6px !important;
+    letter-spacing: 0.02em !important;
+    color: #3a2a1f !important;
+  }
+
+  h2, h3, legend {
+    color: #173b63 !important;
+  }
+
+  .lead, .description, header p, .header p, .hero p {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    color: #7a6555 !important;
+    margin: 0 auto !important;
+  }
+
+  form, main, .container, .wrap {
+    max-width: 760px !important;
+    width: calc(100% - 32px) !important;
+    margin: 8px auto 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  form {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .card, .section, fieldset {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: #fffaf5 !important;
+    border: 1px solid #ffd4a8 !important;
+    border-radius: 24px !important;
+    padding: 28px !important;
+    margin: 0 auto 28px !important;
+    box-shadow: 0 10px 28px rgba(180, 110, 40, 0.08) !important;
+  }
+
+  label {
+    font-weight: 800 !important;
+    color: #4a3427 !important;
+    margin-bottom: 7px !important;
+    display: block !important;
+  }
+
+  input, textarea, select {
+    width: 100% !important;
+    min-height: 54px !important;
+    border: 1.5px solid #f3b986 !important;
+    border-radius: 16px !important;
+    padding: 13px 14px !important;
+    font-size: 16px !important;
+    background: #fff !important;
+    color: #3a2a1f !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+  }
+
+  textarea {
+    min-height: 120px !important;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: #ff8a3d !important;
+    box-shadow: 0 0 0 4px rgba(255, 138, 61, 0.18) !important;
+    background: #fffdf9 !important;
+  }
+
+  button,
+  input[type="button"],
+  input[type="submit"],
+  .btn,
+  .test-btn,
+  .sample-btn {
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 13px 20px !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, #ffb15c 0%, #ff8a3d 48%, #ff6b35 100%) !important;
+    box-shadow: 0 9px 22px rgba(255, 120, 48, 0.28) !important;
+    cursor: pointer !important;
+  }
+
+  button:hover,
+  input[type="button"]:hover,
+  input[type="submit"]:hover,
+  .btn:hover {
+    transform: translateY(-1px) !important;
+    opacity: .96 !important;
+  }
+
+  .number, .step-number, .step-num, .section-number, .question-number,
+  [class*="number"], [class*="step"] {
+    background: #173b63 !important;
+    color: #fff !important;
+    border-color: #173b63 !important;
+  }
+
+  .grid, .row, .form-grid {
+    gap: 20px !important;
+  }
+
+  .test-box, .test-area, [class*="test"] {
+    max-width: 760px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 10px auto 20px !important;
+  }
+
+  @media (max-width: 700px) {
+    header, .header, .hero,
+    form, main, .container, .wrap {
+      width: calc(100% - 20px) !important;
+      max-width: 100% !important;
+    }
+
+    h1 {
+      font-size: 22px !important;
+    }
+
+    .lead, .description, header p, .header p, .hero p {
+      font-size: 11.5px !important;
+    }
+
+    .card, .section, fieldset {
+      padding: 18px !important;
+      margin-bottom: 20px !important;
+      border-radius: 20px !important;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="label">ふるサポ埼玉</span>
+      <h1>返礼品登録<br>商品情報フォーム</h1>
+      <p class="lead">
+        ふるさと納税サイトへの掲載準備に必要な商品情報を確認するためのフォームです。<br>
+        現時点で分かる範囲でご入力ください。未定の項目は「未定」とご記入いただいて大丈夫です。
+      </p>
+    </section>
+
+    <form id="productForm">
+<div style="margin: 24px 0; padding: 16px; background: #f5f5f5; border-radius: 12px; border: 1px solid #ddd;">
+  <button type="button" onclick="fillProductTestData()" style="padding: 12px 18px; border: none; border-radius: 10px; background: #111; color: #fff; font-size: 15px; cursor: pointer;">
+    テスト入力
+  </button>
+  <p style="margin: 8px 0 0; font-size: 13px; color: #666;">
+    商品情報フォームの動作確認用データを自動入力します。
+  </p>
+</div>
+
+
+<input type="hidden" name="customer_id" id="customer_id">
+
+      <section class="section">
+        <div class="section-title">
+          <span class="num">1</span>
+          <h2>事業者・商品基本情報</h2>
+        </div>
+
+        <div class="grid">
+          <div class="field full">
+            <label>事業者名<span class="required">必須</span></label>
+            <input name="business_name" required>
+          </div>
+
+          <div class="field">
+            <label>品番・商品番号</label>
+            <input name="product_code" placeholder="例：A-001">
+          </div>
+
+          <div class="field">
+            <label>商品名<span class="required">必須</span></label>
+            <input name="product_name" required>
+          </div>
+
+          <div class="field">
+            <label>通常販売価格（税込）<span class="required">必須</span></label>
+            <input name="price" type="number" placeholder="例：3240" required>
+          </div>
+
+          <div class="field">
+            <label>商品サイズ</label>
+            <input name="product_size" placeholder="例：縦10cm×横10cm×高さ5cm">
+          </div>
+
+          <div class="field">
+            <label>重さ</label>
+            <input name="weight" placeholder="例：300g">
+          </div>
+
+          <div class="field full">
+            <label>商品説明<span class="required">必須</span></label>
+            <textarea name="product_description" required placeholder="商品の特徴、こだわり、魅力をご記入ください。"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <span class="num">2</span>
+          <h2>原材料・アレルギー</h2>
+        </div>
+
+        <div class="grid">
+          <div class="field full">
+            <label>材料・原材料</label>
+            <textarea name="ingredients" placeholder="食品の場合は原材料をご記入ください。食品以外の場合は主な素材をご記入ください。"></textarea>
+          </div>
+
+          <div class="field">
+            <label>アレルギー表示</label>
+            <input name="allergy" placeholder="例：乳、小麦、卵／該当なし">
+          </div>
+
+          <div class="field">
+            <label>賞味期限・使用期限</label>
+            <input name="expiration_date" placeholder="例：製造日から14日">
+          </div>
+
+          <div class="field">
+            <label>保存方法</label>
+            <input name="storage_method" placeholder="例：冷蔵保存、常温保存">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <span class="num">3</span>
+          <h2>配送・出荷情報</h2>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label>出荷サイズ</label>
+            <input name="shipping_size" placeholder="例：60サイズ、80サイズ">
+          </div>
+
+          <div class="field">
+            <label>配送方法</label>
+            <select name="delivery_method">
+              <option value="">選択してください</option>
+              <option>常温配送</option>
+              <option>冷蔵配送</option>
+              <option>冷凍配送</option>
+              <option>メール便</option>
+              <option>その他</option>
+              <option>未定</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>発送目安</label>
+            <input name="shipping_lead_time" placeholder="例：入金確認後、2週間以内に発送">
+          </div>
+
+          <div class="field">
+            <label>発送不可期間</label>
+            <input name="unavailable_shipping_period" placeholder="例：年末年始、夏季休業期間">
+          </div>
+
+          <div class="field full">
+            <label>梱包方法</label>
+            <textarea name="packaging_method" placeholder="例：専用箱に入れて発送、緩衝材を使用 など"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <span class="num">4</span>
+          <h2>在庫・販売条件</h2>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label>現在の在庫数</label>
+            <input name="stock_quantity" type="number" placeholder="例：30">
+          </div>
+
+          <div class="field">
+            <label>1回の注文で受付できる最大数</label>
+            <input name="max_order_quantity" type="number" placeholder="例：3">
+          </div>
+
+          <div class="field">
+            <label>月に対応できる発送数</label>
+            <input name="monthly_shipping_capacity" type="number" placeholder="例：50">
+          </div>
+
+          <div class="field">
+            <label>在庫補充・追加制作は可能ですか？</label>
+            <select name="restock_available">
+              <option value="">選択してください</option>
+              <option>可能</option>
+              <option>不可</option>
+              <option>要相談</option>
+              <option>未定</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>通年商品／季節商品</label>
+            <select id="salesType" name="sales_type">
+              <option value="">選択してください</option>
+              <option>通年商品</option>
+              <option>季節商品</option>
+              <option>期間限定商品</option>
+              <option>未定</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>数量限定の有無</label>
+            <select name="limited_quantity">
+              <option value="">選択してください</option>
+              <option>数量限定あり</option>
+              <option>数量限定なし</option>
+              <option>未定</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="seasonSection">
+        <div class="section-title">
+          <span class="num">5</span>
+          <h2>季節商品・期間限定商品の詳細</h2>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label>受付開始時期</label>
+            <input name="order_start_period" placeholder="例：4月上旬">
+          </div>
+
+          <div class="field">
+            <label>受付終了時期</label>
+            <input name="order_end_period" placeholder="例：8月末">
+          </div>
+
+          <div class="field">
+            <label>発送開始時期</label>
+            <input name="shipping_start_period" placeholder="例：5月上旬">
+          </div>
+
+          <div class="field">
+            <label>発送終了時期</label>
+            <input name="shipping_end_period" placeholder="例：9月末">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <span class="num">6</span>
+          <h2>費用・工程の確認</h2>
+        </div>
+
+        <div class="note">
+          分かる範囲で大丈夫です。後ほど工程表・原価内訳を作成する際の確認に使用します。
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label>材料費</label>
+            <input name="material_cost" type="number" placeholder="例：800">
+          </div>
+
+          <div class="field">
+            <label>梱包費</label>
+            <input name="packaging_cost" type="number" placeholder="例：150">
+          </div>
+
+          <div class="field">
+            <label>送料</label>
+            <input name="shipping_cost" type="number" placeholder="例：800">
+          </div>
+
+          <div class="field">
+            <label>その他費用</label>
+            <input name="other_cost" type="number" placeholder="例：200">
+          </div>
+
+          <div class="field full">
+            <label>商品の制作・製造工程</label>
+            <textarea name="process_summary" placeholder="例：仕入れ、加工、仕上げ、検品、梱包、発送 など"></textarea>
+          </div>
+
+          <div class="field full">
+            <label>備考</label>
+            <textarea name="notes"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit">入力内容を確認する</button>
+      </div>
+
+      <p class="footer-note">
+        ご入力いただいた内容は、返礼品の商品情報作成・掲載準備・工程確認のために使用いたします。
+      </p>
+    </form>
+
+<div id="productBrowserListArea" style="margin: 32px 0; padding: 24px; background: #f7f7f7; border: 1px solid #ddd; border-radius: 16px; display:none;">
+  <h3 style="margin: 0 0 12px; color:#17365d;">登録した商品一覧</h3>
+  <p style="margin: 0 0 16px; color:#666; line-height:1.7;">
+    この画面で登録した商品を確認できます。<br>
+    続けて登録する場合は、そのまま次の商品をご入力ください。
+  </p>
+  <div id="productBrowserListItems"></div>
+</div>
+
+
+</main>
+
+  
+<script>
+const GAS_URL = "https://script.google.com/macros/s/AKfycbximIQR_j3PyBOLt_QaxGrs5nzpUbooxu5nvnrTfkDm1T1gWnqy5b-jQ7ueg5G4rHoUlw/exec";
+
+function getProductCustomerId() {
+  // ?customer_id=FS-xxx
+  const params = new URLSearchParams(window.location.search);
+  let customerId = params.get("customer_id") || "";
+
+  // #customer_id=FS-xxx
+  if (!customerId && window.location.hash) {
+    const hashText = window.location.hash.replace(/^#/, "");
+    const hashParams = new URLSearchParams(hashText);
+    customerId = hashParams.get("customer_id") || "";
+  }
+
+  return customerId;
+}
+
+document.getElementById("productForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const submitButton = this.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = "登録中...";
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  // 顧客IDをURLから取得して送信データに追加
+  data.customer_id = getProductCustomerId();
+
+  // 商品登録IDと処理種別を追加
+  data.product_id = window.furusapoEditingProductId || furusapoGenerateBrowserProductId();
+  data.action = window.furusapoEditingProductId ? "update" : "create";
+
+  // ブラウザ一覧保存用に送信データを保持
+  window.furusapoLastSubmittedProduct = data;
+
+  console.log("送信データ:", data);
+
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    alert("商品情報を受け付けました。\n\n続けて別の商品を登録する場合は、そのまま次の商品をご入力ください。");
+    saveCurrentProductToBrowserList();
+    resetProductFormAfterSubmit();
+    
+    this.reset();
+
+  } catch (error) {
+    console.error(error);
+    alert("送信中にエラーが発生しました。");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "この商品を登録する";
+  }
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const customerId = params.get("customer_id");
+
+  const customerInput = document.getElementById("customer_id");
+  if (customerInput && customerId) {
+    customerInput.value = customerId;
+    console.log("customer_id set:", customerId);
+  }
+});
+</script>
+
+
+<script>
+function fillProductTestData() {
+  const testData = {
+    // business_name はURLから引き継いだ値を優先するため、テスト入力では上書きしない
+    product_code: "TEST-001",
+    product_name: "顧客IDテスト商品",
+    price: "1000",
+    product_size: "約10cm×10cm×5cm",
+    weight: "約300g",
+    product_description: "商品情報フォームの顧客IDテストです。",
+    ingredients: "テスト原材料",
+    allergy: "なし",
+    expiration_date: "発送日から30日",
+    storage_method: "常温保存",
+    shipping_size: "60サイズ",
+    delivery_method: "常温配送",
+    shipping_lead_time: "入金確認後、2週間以内に発送",
+    unavailable_shipping_period: "なし",
+    packaging_method: "専用箱に入れて発送",
+    stock_quantity: "10",
+    max_order_quantity: "1",
+    monthly_shipping_capacity: "20",
+    restock_available: "可",
+    sales_type: "通年",
+    limited_quantity: "",
+    order_start_period: "",
+    order_end_period: "",
+    shipping_start_period: "",
+    shipping_end_period: "",
+    material_cost: "300",
+    packaging_cost: "100",
+    shipping_cost: "800",
+    other_cost: "0",
+    process_summary: "区域内で企画・加工・梱包を行っています。",
+    notes: "テスト入力ボタンから入力"
+  };
+
+  Object.keys(testData).forEach(function(name) {
+    const el = document.querySelector('[name="' + name + '"]');
+    if (!el) // return removed
+
+    if (el.type === "checkbox" || el.type === "radio") {
+      // return removed
+    }
+
+    el.value = testData[name];
+  });
+
+  const setSelectValue = (name, value) => {
+    const el = document.querySelector('[name="' + name + '"]');
+    if (el && el.tagName === "SELECT") {
+      el.value = value;
+    }
+  };
+
+  const setCheckedByValue = (name, value) => {
+    const el = document.querySelector('[name="' + name + '"][value="' + value + '"]');
+    if (el) el.checked = true;
+  };
+
+  setSelectValue("shipping_size", "60サイズ");
+  setSelectValue("delivery_method", "常温配送");
+  setSelectValue("restock_available", "可");
+  setSelectValue("sales_type", "通年");
+
+  setCheckedByValue("restock_available", "可");
+  setCheckedByValue("sales_type", "通年");
+
+  alert("商品情報のテストデータを入力しました。内容を確認して送信してください。");
+}
+</script>
+
+
+
+
+
+
+
+
+<script>
+</script>
+
+
+<script>
+
+function getBusinessNameFromProductUrl() {
+  const searchParams = new URLSearchParams(window.location.search);
+  let businessName = searchParams.get("business_name") || "";
+
+  if (!businessName && window.location.hash) {
+    const hashText = window.location.hash.replace(/^#/, "");
+    const hashParams = new URLSearchParams(hashText);
+    businessName = hashParams.get("business_name") || "";
+  }
+
+  return businessName;
+}
+
+function resetProductFormAfterSubmit() {
+  const form = document.getElementById("productForm") || document.querySelector("form");
+  if (!form) return;
+
+  const currentBusinessInput = document.querySelector('[name="business_name"]');
+  const businessName =
+    (currentBusinessInput && currentBusinessInput.value)
+      ? currentBusinessInput.value
+      : getBusinessNameFromProductUrl();
+
+  form.reset();
+
+  const newBusinessInput = document.querySelector('[name="business_name"]');
+  if (newBusinessInput && businessName) {
+    newBusinessInput.value = businessName;
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+</script>
+
+
+<script>
+function getProductUrlValue(key) {
+  const searchParams = new URLSearchParams(window.location.search);
+  let value = searchParams.get(key) || "";
+
+  if (!value && window.location.hash) {
+    const hashText = window.location.hash.replace(/^#/, "");
+    const hashParams = new URLSearchParams(hashText);
+    value = hashParams.get(key) || "";
+  }
+
+  return value;
+}
+
+function fillProductBusinessNameFromUrl() {
+  const businessName = getProductUrlValue("business_name");
+  if (!businessName) return;
+
+  const input =
+    document.querySelector('[name="business_name"]') ||
+    document.querySelector('#business_name');
+
+  if (input) {
+    input.value = businessName;
+  }
+}
+
+function resetProductFormAfterSubmit() {
+  const form = document.getElementById("productForm") || document.querySelector("form");
+  if (!form) return;
+
+  const businessName =
+    getProductUrlValue("business_name") ||
+    (document.querySelector('[name="business_name"]')?.value || "");
+
+  form.reset();
+
+  const businessInput =
+    document.querySelector('[name="business_name"]') ||
+    document.querySelector('#business_name');
+
+  if (businessInput && businessName) {
+    businessInput.value = businessName;
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  fillProductBusinessNameFromUrl();
+});
+</script>
+
+
+<script>
+/* 事業者名の自動入力を最後に強制実行 */
+function furusapoGetUrlValue(key) {
+  const searchParams = new URLSearchParams(window.location.search);
+  let value = searchParams.get(key) || "";
+
+  if (!value && window.location.hash) {
+    const hashText = window.location.hash.replace(/^#/, "");
+    const hashParams = new URLSearchParams(hashText);
+    value = hashParams.get(key) || "";
+  }
+
+  return value;
+}
+
+function furusapoFindBusinessNameInput() {
+  // まず name / id で探す
+  let input =
+    document.querySelector('[name="business_name"]') ||
+    document.querySelector('#business_name') ||
+    document.querySelector('[name="businessName"]') ||
+    document.querySelector('#businessName');
+
+  if (input) return input;
+
+  // 事業者名ラベルの近くにある input を探す
+  const labels = Array.from(document.querySelectorAll("label"));
+  const businessLabel = labels.find(label => label.textContent.includes("事業者名"));
+
+  if (businessLabel) {
+    const parent = businessLabel.closest("div") || businessLabel.parentElement;
+    if (parent) {
+      input = parent.querySelector("input, textarea, select");
+      if (input) return input;
+    }
+
+    let next = businessLabel.nextElementSibling;
+    while (next) {
+      input = next.querySelector ? next.querySelector("input, textarea, select") : null;
+      if (input) return input;
+      if (next.matches && next.matches("input, textarea, select")) return next;
+      next = next.nextElementSibling;
+    }
+  }
+
+  return null;
+}
+
+function furusapoFillBusinessName() {
+  const businessName = furusapoGetUrlValue("business_name");
+  if (!businessName) return;
+
+  const input = furusapoFindBusinessNameInput();
+  if (input) {
+    input.value = businessName;
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    console.log("事業者名を自動入力しました:", businessName);
+  } else {
+    console.log("事業者名入力欄が見つかりませんでした");
+  }
+}
+
+// ページ表示直後と少し後に実行
+document.addEventListener("DOMContentLoaded", function() {
+  furusapoFillBusinessName();
+  setTimeout(furusapoFillBusinessName, 300);
+  setTimeout(furusapoFillBusinessName, 1000);
+});
+
+// 送信後リセット用：既存関数を上書き
+function resetProductFormAfterSubmit() {
+  const form = document.getElementById("productForm") || document.querySelector("form");
+  if (!form) return;
+
+  const businessName = furusapoGetUrlValue("business_name");
+
+  form.reset();
+
+  setTimeout(function() {
+    const input = furusapoFindBusinessNameInput();
+    if (input && businessName) {
+      input.value = businessName;
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 100);
+}
+</script>
+
+
+<script>
+function furusapoProductListGetUrlValue(key) {
+  const searchParams = new URLSearchParams(window.location.search);
+  let value = searchParams.get(key) || "";
+
+  if (!value && window.location.hash) {
+    const hashText = window.location.hash.replace(/^#/, "");
+    const hashParams = new URLSearchParams(hashText);
+    value = hashParams.get(key) || "";
+  }
+
+  return value;
+}
+
+function furusapoProductListStorageKey() {
+  const customerId = furusapoProductListGetUrlValue("customer_id") || "no_customer_id";
+  return "furusapo_product_list_" + customerId;
+}
+
+function furusapoGetFieldValueByName(names) {
+  for (const name of names) {
+    const el = document.querySelector('[name="' + name + '"]') || document.querySelector('#' + name);
+    if (el && el.value !== undefined) return el.value;
+  }
+  return "";
+}
+
+function furusapoEscapeHtml(text) {
+  return String(text || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function saveCurrentProductToBrowserList() {
+  const key = furusapoProductListStorageKey();
+  const list = JSON.parse(localStorage.getItem(key) || "[]");
+
+  const source = window.furusapoLastSubmittedProduct || {};
+
+  const product = {
+    product_id: source.product_id || furusapoGenerateBrowserProductId(),
+    saved_at: new Date().toLocaleString("ja-JP"),
+
+    // 一覧表示用
+    business_name: source.business_name || furusapoGetFieldValueByName(["business_name", "businessName"]),
+    product_code: source.product_code || furusapoGetFieldValueByName(["product_code", "productCode", "item_code", "itemCode"]),
+    product_name: source.product_name || furusapoGetFieldValueByName(["product_name", "productName", "item_name", "itemName"]),
+    price: source.price || furusapoGetFieldValueByName(["price", "product_price", "normal_price", "selling_price"]),
+    size: source.product_size || source.size || furusapoGetFieldValueByName(["product_size", "size"]),
+    weight: source.weight || furusapoGetFieldValueByName(["weight", "product_weight"]),
+
+    // 修正時に全項目を戻すため、送信データを丸ごと保存
+    form_data: Object.assign({}, source)
+  };
+
+  if (!product.product_name && !product.price && !product.product_code) {
+    return;
+  }
+
+  const existingIndex = list.findIndex(function(item) {
+    return item.product_id && item.product_id === product.product_id;
+  });
+
+  if (existingIndex >= 0) {
+    list[existingIndex] = product;
+  } else {
+    list.push(product);
+  }
+
+  localStorage.setItem(key, JSON.stringify(list));
+
+  window.furusapoEditingProductId = "";
+  window.furusapoLastSubmittedProduct = null;
+
+  renderProductBrowserList();
+}
+
+function renderProductBrowserList() {
+  const area = document.getElementById("productBrowserListArea");
+  const container = document.getElementById("productBrowserListItems");
+  if (!area || !container) return;
+
+  const key = furusapoProductListStorageKey();
+  const list = JSON.parse(localStorage.getItem(key) || "[]");
+
+  if (list.length === 0) {
+    area.style.display = "none";
+    container.innerHTML = "";
+    return;
+  }
+
+  area.style.display = "block";
+
+  container.innerHTML = list.map(function(item, index) {
+    return `
+      <div style="padding: 16px; margin-bottom: 12px; background:#fff; border:1px solid #ddd; border-radius:12px;">
+        <div style="font-weight:bold; font-size:16px; margin-bottom:8px;">
+          ${index + 1}. ${furusapoEscapeHtml(item.product_name || "商品名未入力")}
+        </div>
+        <div style="font-size:14px; color:#555; line-height:1.8;">
+          品番・商品番号：${furusapoEscapeHtml(item.product_code || "未入力")}<br>
+          通常販売価格（税込）：${furusapoEscapeHtml(item.price || "未入力")}<br>
+          商品サイズ：${furusapoEscapeHtml(item.size || "未入力")}<br>
+          重さ：${furusapoEscapeHtml(item.weight || "未入力")}<br>
+          登録日時：${furusapoEscapeHtml(item.saved_at || "")}<br>商品登録ID：${furusapoEscapeHtml(item.product_id || "未取得")}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  area.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  renderProductBrowserList();
+});
+</script>
+
+
+<script>
+/* 登録した商品一覧：修正・削除ボタン追加版 */
+
+function furusapoSetFieldValueByName(names, value) {
+  for (const name of names) {
+    const el = document.querySelector('[name="' + name + '"]') || document.querySelector('#' + name);
+    if (el && el.value !== undefined) {
+      el.value = value || "";
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+      return true;
+    }
+  }
+  return false;
+}
+
+function editProductBrowserListItem(index) {
+  const key = furusapoProductListStorageKey();
+  const list = JSON.parse(localStorage.getItem(key) || "[]");
+  const item = list[index];
+
+  if (!item) return;
+
+  if (!item.product_id) {
+    alert("この商品は商品登録IDがないため、スプレッドシート上書き修正には対応していません。\n\n内容を修正する場合は、新しい商品として再登録してください。");
+    return;
+  }
+
+  if (!item.form_data) {
+    alert("この商品は古い形式で保存されているため、全項目をフォームに戻せません。\n\n今後登録する商品は、修正時に全項目が戻るようになります。");
+    return;
+  }
+
+  window.furusapoEditingProductId = item.product_id;
+
+  const form = document.getElementById("productForm") || document.querySelector("form");
+  if (form) {
+    form.reset();
+  }
+
+  Object.keys(item.form_data).forEach(function(name) {
+    const el = document.querySelector('[name="' + name + '"]') || document.querySelector('#' + name);
+    if (el && el.value !== undefined) {
+      el.value = item.form_data[name] || "";
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  alert("商品情報をフォームに戻しました。\n\n内容を修正して、もう一度「この商品を登録する」を押してください。\n\n同じ商品登録IDの行をスプレッドシート上で上書きします。");
+}
+
+async function deleteProductBrowserListItem(index) {
+  const ok = confirm("この商品を一覧から削除しますか？\n\nスプレッドシート側は行を消さずに「削除済み」として記録します。");
+  if (!ok) return;
+
+  const key = furusapoProductListStorageKey();
+  const list = JSON.parse(localStorage.getItem(key) || "[]");
+  const item = list[index];
+
+  if (!item) return;
+
+  if (!item.product_id) {
+    alert("この商品は商品登録IDがないため、スプレッドシート側の削除済み反映には対応していません。\n\nブラウザ上の一覧からのみ削除します。");
+    list.splice(index, 1);
+    localStorage.setItem(key, JSON.stringify(list));
+    renderProductBrowserList();
+    return;
+  }
+
+  try {
+    await fetch(GAS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        action: "delete",
+        product_id: item.product_id || "",
+        customer_id: typeof getProductCustomerId === "function" ? getProductCustomerId() : "",
+        business_name: item.business_name || "",
+        product_code: item.product_code || "",
+        product_name: item.product_name || ""
+      })
+    });
+  } catch (error) {
+    console.error(error);
+    alert("削除処理の送信中にエラーが発生しました。");
+    return;
+  }
+
+  list.splice(index, 1);
+  localStorage.setItem(key, JSON.stringify(list));
+
+  renderProductBrowserList();
+
+  alert("商品を一覧から削除しました。\n\nスプレッドシート側は「削除済み」として記録されます。");
+}
+
+function renderProductBrowserList() {
+  const area = document.getElementById("productBrowserListArea");
+  const container = document.getElementById("productBrowserListItems");
+  if (!area || !container) return;
+
+  const key = furusapoProductListStorageKey();
+  const list = JSON.parse(localStorage.getItem(key) || "[]");
+
+  if (list.length === 0) {
+    area.style.display = "none";
+    container.innerHTML = "";
+    return;
+  }
+
+  area.style.display = "block";
+
+  container.innerHTML = list.map(function(item, index) {
+    return `
+      <div style="padding: 16px; margin-bottom: 12px; background:#fff; border:1px solid #ddd; border-radius:12px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+          <div style="font-weight:bold; font-size:16px; margin-bottom:8px;">
+            ${index + 1}. ${furusapoEscapeHtml(item.product_name || "商品名未入力")}
+          </div>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" onclick="editProductBrowserListItem(${index})" style="padding:8px 12px; border:1px solid #17365d; border-radius:8px; background:#fff; color:#17365d; font-size:13px; cursor:pointer;">
+              修正
+            </button>
+            <button type="button" onclick="deleteProductBrowserListItem(${index})" style="padding:8px 12px; border:1px solid #b00020; border-radius:8px; background:#fff; color:#b00020; font-size:13px; cursor:pointer;">
+              削除
+            </button>
+          </div>
+        </div>
+
+        <div style="font-size:14px; color:#555; line-height:1.8;">
+          品番・商品番号：${furusapoEscapeHtml(item.product_code || "未入力")}<br>
+          通常販売価格（税込）：${furusapoEscapeHtml(item.price || "未入力")}<br>
+          商品サイズ：${furusapoEscapeHtml(item.size || "未入力")}<br>
+          重さ：${furusapoEscapeHtml(item.weight || "未入力")}<br>
+          登録日時：${furusapoEscapeHtml(item.saved_at || "")}<br>商品登録ID：${furusapoEscapeHtml(item.product_id || "未取得")}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+</script>
+
+
+<script>
+/* スプシ修正・削除反映用 */
+window.furusapoEditingProductId = "";
+window.furusapoLastSubmittedProduct = null;
+
+function furusapoGenerateBrowserProductId() {
+  const customerId =
+    typeof getProductCustomerId === "function"
+      ? getProductCustomerId()
+      : "NO-CUSTOMER";
+
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mm = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  const rand = String(Math.floor(Math.random() * 10000)).padStart(4, "0");
+
+  return customerId + "-P-" + y + m + d + hh + mm + ss + "-" + rand;
+}
+</script>
+
+
+<script>
+/**
+ * ふるサポ 商品情報フォーム
+ * customer_id / business_name 強制引き継ぎ補正
+ * 本番用：送信直前にURLの顧客IDをhiddenへ必ず入れる
+ */
+(function () {
+  function getUrlValue(key) {
+    const searchParams = new URLSearchParams(window.location.search);
+    let value = searchParams.get(key) || "";
+
+    if (!value && window.location.hash) {
+      const hashText = window.location.hash.replace(/^#/, "");
+      const hashParams = new URLSearchParams(hashText);
+      value = hashParams.get(key) || "";
+    }
+
+    return value;
+  }
+
+  function syncProductCustomerInfo() {
+    const customerId =
+      getUrlValue("customer_id") ||
+      getUrlValue("customerId") ||
+      "";
+
+    const businessName =
+      getUrlValue("business_name") ||
+      getUrlValue("businessName") ||
+      "";
+
+    const customerInput =
+      document.querySelector('input[name="customer_id"]') ||
+      document.getElementById("customer_id");
+
+    if (customerInput && customerId) {
+      customerInput.value = customerId;
+      customerInput.setAttribute("value", customerId);
+    }
+
+    const businessInput =
+      document.querySelector('input[name="business_name"]') ||
+      document.querySelector('input[name="businessName"]') ||
+      document.getElementById("business_name");
+
+    if (businessInput && businessName) {
+      businessInput.value = businessName;
+      businessInput.setAttribute("value", businessName);
+    }
+
+    console.log("ふるサポ商品フォーム customer_id補正:", customerId);
+    console.log("ふるサポ商品フォーム business_name補正:", businessName);
+  }
+
+  document.addEventListener("DOMContentLoaded", syncProductCustomerInfo);
+  window.addEventListener("load", syncProductCustomerInfo);
+
+  document.addEventListener("submit", function () {
+    syncProductCustomerInfo();
+  }, true);
+
+  document.addEventListener("click", function () {
+    syncProductCustomerInfo();
+  }, true);
+})();
+</script>
+
+</body>
+</html>
